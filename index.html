@@ -3,221 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CANADA TIPPER - Cricket Updates & Analysis</title>
+    <title>Canada Expert - Cricket Analysis Portal</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root {
-            --bg-color: #0d1117;
-            --card-bg: #161b22;
-            --accent-color: #00f2fe;
-            --btn-color: #4facfe;
-            --text-main: #ffffff;
-            --text-muted: #8b949e;
-        }
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
+
+        body, html {
+            height: 100%;
+            width: 100%;
+            background-color: #0b131e;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            padding: 20px;
         }
-        .container {
-            max-width: 480px;
-            width: 100%;
-            background: var(--card-bg);
-            border-radius: 24px;
-            padding: 35px 25px;
+
+        /* Main Card Container */
+        .portal-card {
+            background: linear-gradient(135deg, rgba(16, 28, 45, 0.95), rgba(8, 15, 25, 0.95));
+            border: 2px solid rgba(0, 162, 255, 0.3);
+            box-shadow: 0 0 30px rgba(0, 140, 255, 0.2);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 450px;
+            padding: 30px 20px;
             text-align: center;
-            box-shadow: 0 20px 40px rgba(0, 242, 254, 0.15);
-            border: 1px solid rgba(0, 242, 254, 0.2);
+            color: #ffffff;
         }
-        .profile-container {
-            margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
-        }
-        .profile-img {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--accent-color);
-            box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
-        }
-        .badge {
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
-            color: white;
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 0.85rem;
+
+        /* Top Badge */
+        .top-badge {
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            color: #ffffff;
+            font-size: 12px;
             font-weight: bold;
+            padding: 6px 16px;
+            border-radius: 20px;
             display: inline-block;
             margin-bottom: 20px;
+            letter-spacing: 0.5px;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
+
+        /* Heading */
         h1 {
-            font-size: 2.2rem;
+            font-size: 26px;
             font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, #fff, var(--text-muted));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            color: #ffffff;
         }
-        h1 span {
-            background: linear-gradient(135deg, var(--accent-color), var(--btn-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .lang-switcher {
+
+        /* Stacked Telegram Join Buttons */
+        .btn-group {
             display: flex;
-            justify-content: center;
-            gap: 10px;
+            flex-direction: column;
+            gap: 12px;
             margin-bottom: 25px;
         }
-        .lang-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-muted);
-            padding: 8px 16px;
-            border-radius: 12px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        .lang-btn.active {
-            background: linear-gradient(135deg, var(--accent-color), var(--btn-color));
-            color: #000;
+
+        .btn-join {
+            background: linear-gradient(90deg, #0088cc, #0055ff);
+            color: #ffffff;
+            font-size: 15px;
             font-weight: 700;
-            border-color: transparent;
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
-        }
-        .lang-content {
-            display: none;
-        }
-        .lang-content.active {
-            display: block;
-        }
-        .subtitle {
-            color: var(--text-muted);
-            font-size: 1rem;
-            margin-bottom: 30px;
-            line-height: 1.4;
-        }
-        .features-list {
-            text-align: left;
-            margin-bottom: 35px;
-            background: rgba(255,255,255,0.03);
-            padding: 20px;
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-        .feature-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-        }
-        .icon {
-            color: var(--accent-color);
-            margin-right: 12px;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-        .btn-telegram {
+            padding: 14px 20px;
+            border-radius: 10px;
+            text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
-            color: white;
-            text-decoration: none;
-            padding: 16px;
-            border-radius: 14px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            box-shadow: 0 8px 24px rgba(0, 114, 255, 0.4);
-            transition: all 0.3s ease;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.4);
+            transition: transform 0.2s, background 0.2s;
         }
-        .btn-telegram:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(0, 114, 255, 0.6);
+
+        .btn-join:hover {
+            transform: scale(1.02);
+            background: linear-gradient(90deg, #0099ff, #0044cc);
         }
-        .disclaimer {
-            font-size: 0.75rem;
-            color: #6e7681;
-            margin-top: 25px;
+
+        .btn-join:active {
+            transform: scale(0.98);
+        }
+
+        /* Description text */
+        .description {
+            font-size: 13px;
+            color: #b0c4de;
+            margin-bottom: 20px;
             line-height: 1.4;
+        }
+
+        /* Features Box */
+        .features-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .feature-item {
+            font-size: 13px;
+            color: #e0e0e0;
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-item i {
+            color: #00ffcc;
+        }
+
+        /* Footer Disclaimer */
+        .disclaimer {
+            font-size: 10px;
+            color: #778899;
+            line-height: 1.3;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="profile-container">
-            <img src="profile.jpg" alt="CANADA TIPPER" class="profile-img">
-        </div>
-        <div class="badge">📊 Expert Analysis Portal</div>
-        <h1>CANADA <span>EXPERT</span></h1>
-        <div class="lang-switcher">
-            <button class="lang-btn active" onclick="switchLang('en')">English</button>
-            <button class="lang-btn" onclick="switchLang('kn')">ಕನ್ನಡ</button>
-            <button class="lang-btn" onclick="switchLang('te')">తెలుగు</button>
-        </div>
-        <!-- ENGLISH CONTENT -->
-        <div id="content-en" class="lang-content active">
-            <p class="subtitle">Get Pre-Match Analysis, Stats, Pitch Reports, and News for IPL & All T20 Matches</p>
-            <div class="features-list">
-                <div class="feature-item"><span class="icon">✓</span> Detailed Pitch & Weather Reports</div>
-                <div class="feature-item"><span class="icon">✓</span> In-Depth Player Stats & Records</div>
-                <div class="feature-item"><span class="icon">✓</span> Real-Time Match Informational Updates</div>
-            </div>
-            <a href="https://telegram.me" target="_blank" class="btn-telegram">
-                🚀 JOIN TELEGRAM FOR UPDATES
+
+    <div class="portal-card">
+        <!-- Top Badge -->
+        <div class="top-badge">Canada Tipped Expert Analysis Portal</div>
+
+        <!-- Main Title -->
+        <h1>CANADA EXPERT</h1>
+
+        <!-- Teen Line Se Buttons (English, Telegram/General, Kannada) -->
+        <div class="btn-group">
+            <!-- 1. English Channel Button -->
+            <a href="https://t.me/YOUR_ENGLISH_CHANNEL_LINK" class="btn-join" target="_blank">
+                <i class="fab fa-telegram-plane"></i> Join English Telegram Channel
+            </a>
+
+            <!-- 2. Main Telegram Updates Button -->
+            <a href="https://t.me/YOUR_MAIN_CHANNEL_LINK" class="btn-join" target="_blank">
+                <i class="fab fa-telegram-plane"></i> Join Telegram Channel Click Here
+            </a>
+
+            <!-- 3. Kannada Channel Button -->
+            <a href="https://t.me/YOUR_KANNADA_CHANNEL_LINK" class="btn-join" target="_blank">
+                <i class="fab fa-telegram-plane"></i> Join Kannada Telegram Channel
             </a>
         </div>
-        <!-- KANNADA CONTENT -->
-        <div id="content-kn" class="lang-content">
-            <p class="subtitle">IPL ಮತ್ತು ಎಲ್ಲಾ ಪಂದ್ಯಗಳಿಗೆ ಮುಖಾಮುಖಿ ಅಂಕಿಅಂಶಗಳು, ಪಿಚ್ ವರದಿಗಳು ಮತ್ತು ಸುದ್ದಿಗಳನ್ನು ಪಡೆಯಿರಿ</p>
-            <div class="features-list">
-                <div class="feature-item"><span class="icon">✓</span> ವಿವರವಾದ ಪಿಚ್ ಮತ್ತು ಹವಾಮಾನ ವರದಿಗಳು</div>
-                <div class="feature-item"><span class="icon">✓</span> ಆಟಗಾರರ ಆಳವಾದ ಅಂಕಿಅಂಶಗಳು</div>
-                <div class="feature-item"><span class="icon">✓</span> ನೈಜ-ಸಮಯದ ಕ್ರಿಕೆಟ್ ಮಾಹಿತಿ ನವೀಕರಣಗಳು</div>
-            </div>
-            <a href="https://telegram.me" target="_blank" class="btn-telegram">
-                🚀 ಅಪ್ಡೇಟ್ಸ್‌ಗಾಗಿ ಟೆಲಿಗ್ರಾಮ್ ಸೇರಿ
-            </a>
+
+        <p class="description">Get Pre-Match Analysis, Stats, Pitch Reports, and News for IPL & All T20 Matches</p>
+
+        <!-- Features List -->
+        <div class="features-box">
+            <div class="feature-item"><i class="fas fa-check"></i> Detailed Pitch & Weather Reports</div>
+            <div class="feature-item"><i class="fas fa-check"></i> In-Depth Player Stats & Records</div>
+            <div class="feature-item"><i class="fas fa-check"></i> Real-Time Match Informational Updates</div>
         </div>
-        <!-- TELUGU CONTENT -->
-        <div id="content-te" class="lang-content">
-            <p class="subtitle">IPL & అన్ని మ్యాచ్‌ల కోసం ప్రీ-మ్యాచ్ విశ్లేషణ, గణాంకాలు, పిచ్ నివేదికలు పొందండి</p>
-            <div class="features-list">
-                <div class="feature-item"><span class="icon">✓</span> వివరణాత్మక పిచ్ & వాతావరణ నివేదికలు</div>
-                <div class="feature-item"><span class="icon">✓</span> ప్లేయర్స్ లోతైన గణాంకాలు & రికార్డులు</div>
-                <div class="feature-item"><span class="icon">✓</span> రియల్ టైమ్ మ్యాచ్ సమాచార అప్‌డేట్స్</div>
-            </div>
-            <a href="https://telegram.me" target="_blank" class="btn-telegram">
-                🚀 అప్డేట్స్ కోసం టెలిగ్రామ్‌లో చేరండి
-            </a>
-        </div>
-        <div class="disclaimer">
+
+        <!-- Disclaimer -->
+        <p class="disclaimer">
             *This portal offers cricket statistics, historical records, and news updates for informational and educational purposes only. We strictly do not support or promote gambling or betting activities.
-        </div>
+        </p>
     </div>
-    <script>
-        function switchLang(lang) {
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.lang-content').forEach(content => content.classList.remove('active'));
-            event.target.classList.add('active');
-            document.getElementById('content-' + lang).classList.add('active');
-        }
-    </script>
+
 </body>
 </html>
